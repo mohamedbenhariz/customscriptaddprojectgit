@@ -39,11 +39,14 @@ git remote add origin $parameterB
 FILE=.gitignore
 if [ -f "$FILE" ]; then
     echo "$FILE exists."
+	
 else 
     echo "$FILE does not exist."
 	curl -o .gitignore https://www.toptal.com/developers/gitignore/api/$parameterC
+	echo $0 >> .gitignore
 fi
-echo $0 >> .gitignore
+
+echo custumScript.sh >> .gitignore
 git add .
 git commit -m "Initial commit"
 git push -u origin $parameterA 
